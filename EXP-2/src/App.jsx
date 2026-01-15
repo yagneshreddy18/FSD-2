@@ -1,7 +1,8 @@
-import Home from "./components/Home.jsx";
+import './App.css';
+import SinglePageApp from '../../EXP-2/src/components/Spa';
 
 function App() {
-  return <Home />;
+  return <SinglePageApp />;
 }
 
 export default App;
