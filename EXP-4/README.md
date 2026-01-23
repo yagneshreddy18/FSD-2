@@ -1,16 +1,80 @@
-# React + Vite
+# Experiment-4: State Management in React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This experiment demonstrates **State Management in React** using three approaches:
+1. Local State
+2. Global State using Context API
+3. Global State using Redux
 
-Currently, two official plugins are available:
+The goal is to understand how state behaves at component level and application level.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🎯 Aim
+To study and implement **state management techniques in React** using Local State, Context API, and Redux.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Theory
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Local State
+Local state is managed using the `useState()` hook and is limited to a single component.  
+Changes in local state affect only that component.
+
+### 2. Global State using Context API
+Context API allows data to be shared globally without passing props manually.  
+All components consuming the same context reflect changes instantly.
+
+### 3. Global State using Redux
+Redux provides a centralized store to manage application state.  
+Components interact with the store using actions and reducers.
+
+---
+
+## 🛠️ Technologies Used
+- React (Vite)
+- JavaScript (ES6)
+- Context API
+- Redux
+- React Redux
+
+---
+
+## 📂 Project Structure
+
+src
+│
+├── components
+│ ├── CounterLocalState.jsx
+│ ├── CounterGlobalContextParent.jsx
+│ ├── CounterGlobalReduxParent.jsx
+│ └── context
+│ └── CounterGlobalContextAPI.jsx
+│
+├── store
+│ ├── Store.jsx
+│ └── CounterReducer.jsx
+│
+├── App.jsx
+├── main.jsx
+└── index.css
+
+---
+
+## 🔄 Execution Flow
+
+1. `main.jsx` wraps the application with:
+   - Redux `<Provider>`
+   - Context API Provider
+2. `App.jsx` renders:
+   - Local State Counter
+   - Context API Counters
+   - Redux Counters
+3. State updates are reflected based on the state management technique used.
+
+---
+
+## ▶️ How to Run the Project
+
+### 1. Install dependencies
+```bash
+npm install
