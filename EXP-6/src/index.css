@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #f4f6fb, #e9ecf3);
+  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+  color: #1f2937;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
