@@ -1,16 +1,45 @@
-# React + Vite
+# EXP-5: React Lazy Loading
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This experiment shows how to use **lazy loading** in a React application with multiple components.
 
-Currently, two official plugins are available:
+## Aim
+To create a React application with multiple components and load them using lazy loading.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
+EXP-5  
+public  
+src  
+- components  
+  - Dashboard.jsx  
+  - Company.jsx  
+  - Help.jsx  
+  - Navigation.jsx  
+- App.jsx  
+- App.css  
+- index.css  
+- main.jsx  
 
-## React Compiler
+## Description
+Components like Dashboard, Company, and Help are loaded only when their routes are visited.  
+This is done using `React.lazy()` and `Suspense`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
+- React  
+- React Router DOM  
+- JavaScript  
+- CSS  
 
-## Expanding the ESLint configuration
+## Output
+- Navigation menu is displayed  
+- Components load when clicked  
+- Content is shown inside a card  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Learning Outcomes
+1. Understand component-based development in React  
+2. Learn lazy loading using `React.lazy()`  
+3. Use `Suspense` for loading states  
+4. Implement routing using React Router  
+5. Improve performance using code splitting  
+
+## Conclusion
+Lazy loading helps improve performance by loading components only when needed.
