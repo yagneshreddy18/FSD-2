@@ -1,0 +1,6 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+BACKEND/EXP-8/vir-exp-8/
