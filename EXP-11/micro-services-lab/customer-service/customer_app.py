@@ -9,12 +9,15 @@ customers = {
     102: {"id": 102, "name": "Customer-2", "email": "customer-2@example.com"}
 }
 
-# 🔥 Replace with your Render Order Service URL
-ORDER_SERVICE_URL = "https://exp-11-order-service.onrender.com"
+# 🔥 REPLACE THIS AFTER DEPLOYING ORDER SERVICE
+ORDER_SERVICE_URL = "https://your-order-service.onrender.com"
 
+@app.route("/")
+def home():
+    return jsonify({"service": "Customer Service Running"})
 
 @app.route("/customers/<int:user_id>/orders")
-def get_account_details(user_id):
+def get_customer_orders(user_id):
     customer = customers.get(user_id)
 
     if not customer:
@@ -23,26 +26,20 @@ def get_account_details(user_id):
     try:
         response = requests.get(
             f"{ORDER_SERVICE_URL}/orders/user/{user_id}",
-            timeout=3
+            timeout=5
         )
 
         if response.status_code == 200:
             orders = response.json()
         else:
             orders = []
-    except requests.exceptions.RequestException:
+    except:
         orders = []
 
     return jsonify({
         "customer": customer,
         "orders": orders
     })
-
-
-@app.route("/")
-def home():
-    return jsonify({"service": "Customer Service Running"})
-
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
