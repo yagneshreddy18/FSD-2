@@ -4,3 +4,6 @@ __pycache__/
 
 # Virtual Environment
 BACKEND/EXP-8/vir-exp-8/
+
+venv/
+__pycache__/
