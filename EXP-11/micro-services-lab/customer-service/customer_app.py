@@ -10,8 +10,7 @@ customers = {
 }
 
 # 🔥 REPLACE THIS AFTER DEPLOYING ORDER SERVICE
-ORDER_SERVICE_URL = "https://your-order-service.onrender.com"
-
+ORDER_SERVICE_URL = "https://exp-11-order-service.onrender.com"
 @app.route("/")
 def home():
     return jsonify({"service": "Customer Service Running"})
