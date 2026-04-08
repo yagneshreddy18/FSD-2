@@ -9,7 +9,7 @@ customers = {
     102: {"id": 102, "name": "Customer-2", "email": "customer-2@example.com"}
 }
 
-# 🔥 REPLACE THIS AFTER DEPLOYING ORDER SERVICE
+# REPLACE THIS AFTER DEPLOYING ORDER SERVICE
 ORDER_SERVICE_URL = "https://exp-11-order-service.onrender.com"
 @app.route("/")
 def home():
