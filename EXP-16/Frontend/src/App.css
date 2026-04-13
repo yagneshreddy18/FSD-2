@@ -1,0 +1,44 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+}
+
+/* Main centered box */
+.container-center {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 460px;
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Subtle hover lift */
+.container-center:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 35px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+.container-center h1,
+.container-center h2 {
+  margin-bottom: 1rem;
+  color: #1f2937;
+  font-weight: 600;
+}
+
+/* Paragraph text */
+.container-center p {
+  color: #4b5563;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
