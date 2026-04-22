@@ -1,39 +1,97 @@
-# Experiment 16 - Unit Testing
+# Experiment 20 - Full Stack (Flask + React)
 
-## Backend
+This experiment now contains:
 
-* The Flask backend is tested with `pytest`
-* Core CRUD routes are covered through unit tests
+- `backend/` Flask API (MySQL-backed)
+- `frontend/` React app (Vite) connected to the backend
 
-Run:
+## Local Run
+
+### 1) Backend
+
 ```bash
-cd Testing/Backend
-pytest
+cd backend
+python -m pip install -r requirements.txt
+python run.py
 ```
 
----
+Backend runs on `http://localhost:5000`.
 
-## Frontend
+### 2) Frontend
 
-* The React frontend is tested with `vitest`
-* Form behavior and UI rendering are validated through component tests
-
-Run:
 ```bash
-cd Testing/Frontend
+cd frontend
 npm install
-npm run test
+npm run dev
 ```
 
----
+Frontend runs on `http://localhost:5173` by default.
 
-## GitHub Actions
+Create `frontend/.env`:
 
-* Tests are triggered automatically on every push
-* Both backend and frontend test suites are included in CI
+```env
+VITE_API_BASE_URL=http://localhost:5000
+```
 
----
+## Deploy Backend on Render
 
-## Result
+Create a new **Web Service** from this repo with:
 
-All configured tests completed successfully.
+- **Root Directory:** `experiment-20/backend`
+- **Build Command:** `pip install -r requirements.txt`
+- **Start Command:** `gunicorn app:app`
+- **Runtime:** Python 3.10+
+
+Set environment variables in Render:
+
+- `SQLALCHEMY_DATABASE_URI` (optional, if using full DB URL)
+- `DB_DRIVER` (usually `mysql+pymysql`)
+- `DB_USER`
+- `DB_PASSWORD`
+- `DB_HOST`
+- `DB_PORT`
+- `DB_NAME`
+- `CORS_ORIGINS` (set to your Netlify URL, e.g. `https://your-site.netlify.app`)
+
+After deploy, copy your backend URL, for example:
+
+`https://your-backend.onrender.com`
+
+## Deploy Frontend on Netlify
+
+Create a new Netlify site from this repo and set:
+
+- **Base directory:** `experiment-20/frontend`
+- **Build command:** `npm run build`
+- **Publish directory:** `dist`
+
+Add Netlify environment variable:
+
+- `VITE_API_BASE_URL=https://your-backend.onrender.com`
+
+Then redeploy.
+
+## API Routes used by frontend
+
+- `GET /students`
+- `POST /students`
+- `PUT /students/<id>`
+- `DELETE /students/<id>`
+
+## Output Screenshots
+
+### Frontend - Student Manager UI
+
+![Frontend Student Manager](./screenshots/frontend-student-manager.png)
+
+### POST /students in Postman
+
+![Postman POST Student](./screenshots/postman-post-student.png)
+
+### GET /students in Postman
+
+![Postman GET Students](./screenshots/postman-get-students.png)
+
+### Students table in MySQL Workbench
+
+![MySQL Workbench Students Table](./screenshots/mysql-workbench-students.png)
